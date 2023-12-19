@@ -1,0 +1,97 @@
+{
+	"name": "@awenovations/aura",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "npm run transform-tokens && vite build && npm run package",
+		"preview": "vite preview",
+		"copy-icons": "cp -rf icons dist/icons",
+		"copy-svgs": "cp -rf svgs dist/svgs",
+		"package": "svelte-kit sync && svelte-package && cp -rf tokens dist/tokens && npm run copy-icons && npm run copy-svgs && publint",
+		"prepublishOnly": "npm run package",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"lint": "prettier --check . && eslint .",
+		"format": "prettier --write .",
+		"transform-tokens": "node ./src/tokens/transform-tokens.js",
+		"storybook": "npm run transform-tokens && storybook dev -p 6006",
+		"build-storybook": "npm run transform-tokens && storybook build",
+		"replace-icons": "replace-in-file //icons//g ../icons/ docs/**/*.* --isRegex",
+		"replace-svgs": "replace-in-file //svgs//g ../svgs/ docs/**/*.* --isRegex",
+		"build-storybook-for-pages": "rimraf docs && npm run transform-tokens && storybook build --output-dir docs && npm run replace-icons &&npm run replace-svgs && touch docs/.nojekyll"
+	},
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"svelte": "./dist/index.js"
+		},
+		"./package.json": "./package.json",
+		"./button.svelte": "./dist/button/button.svelte",
+		"./icon.svelte": "./dist/icon/icon.svelte",
+		"./container.svelte": "./dist/container/container.svelte",
+		"./dropdown.svelte": "./dist/dropdown/dropdown.svelte",
+		"./form-item.svelte": "./dist/form-item/form-item.svelte",
+		"./zero-state.svelte": "./dist/zero-state/zero-state.svelte",
+		"./error-state.svelte": "./dist/error-state/error-state.svelte",
+		"./float.svelte": "./dist/float/float.svelte",
+		"./input.svelte": "./dist/input/input.svelte",
+		"./progress-ring.svelte": "./dist/progress/progress-ring.svelte",
+		"./skeleton.svelte": "./dist/skeleton/skeleton.svelte",
+		"./alert.svelte": "./dist/alert/alert.svelte",
+		"./dist/tokens/_variables.css": {
+			"import": "./dist/tokens/_variables.css",
+			"require": "./dist/tokens/_variables.css"
+		}
+	},
+	"files": [
+		"dist",
+		"!dist/**/*.test.*",
+		"!dist/**/*.spec.*"
+	],
+	"peerDependencies": {
+		"svelte": "^4.0.0"
+	},
+	"devDependencies": {
+		"@storybook/addon-essentials": "^8.1.11",
+		"@storybook/addon-interactions": "^8.1.11",
+		"@storybook/addon-links": "^8.1.11",
+		"@storybook/blocks": "^8.1.11",
+		"@storybook/svelte": "^8.1.11",
+		"@storybook/sveltekit": "^8.1.11",
+		"@storybook/test": "^8.1.11",
+		"@sveltejs/adapter-auto": "^3.2.2",
+		"@sveltejs/kit": "^2.5.18",
+		"@sveltejs/package": "^2.3.2",
+		"@sveltejs/vite-plugin-svelte": "^3.1.1",
+		"@typescript-eslint/eslint-plugin": "^7.14.1",
+		"@typescript-eslint/parser": "^7.14.1",
+		"eslint": "^9.6.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-storybook": "^0.8.0",
+		"eslint-plugin-svelte": "^2.41.0",
+		"prettier": "^3.3.2",
+		"prettier-plugin-svelte": "^3.2.5",
+		"publint": "^0.2.8",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
+		"rimraf": "^5.0.7",
+		"sass": "^1.77.6",
+		"storybook": "^8.1.11",
+		"style-dictionary": "^3.9.1",
+		"style-dictionary-utils": "^2.4.1",
+		"svelte": "^4.2.18",
+		"svelte-check": "^3.8.4",
+		"tslib": "^2.6.3",
+		"typescript": "^5.5.2",
+		"vite": "^5.3.2"
+	},
+	"svelte": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"type": "module",
+	"dependencies": {
+		"@floating-ui/dom": "^1.6.6",
+		"@storybook/addon-svelte-csf": "^4.1.3",
+		"@storybook/addon-themes": "^8.1.11",
+		"replace-in-file": "^8.0.1"
+	}
+}

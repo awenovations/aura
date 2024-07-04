@@ -36,7 +36,7 @@
 		"./zero-state.svelte": "./dist/zero-state/zero-state.svelte",
 		"./error-state.svelte": "./dist/error-state/error-state.svelte",
 		"./float.svelte": "./dist/float/float.svelte",
-		"./input.svelte": "./dist/input/input.svelte",
+		"./text-field.svelte": "./dist/text-field/text-field.svelte",
 		"./progress-ring.svelte": "./dist/progress/progress-ring.svelte",
 		"./skeleton.svelte": "./dist/skeleton/skeleton.svelte",
 		"./alert.svelte": "./dist/alert/alert.svelte",

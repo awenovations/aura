@@ -18,7 +18,7 @@
 <script lang="ts">
 	import { Story, Template } from '@storybook/addon-svelte-csf';
 
-	import Input from '$lib/input/input.svelte';
+	import TextField from '$lib/text-field/text-field.svelte';
 	import Dropdown from '$lib/dropdown/dropdown.svelte';
 
 	$: size = 'large';
@@ -46,7 +46,7 @@
 <Story name="All">
 	<div style="min-height: 300px;">
 		<div style="display: flex; gap: 10px;">
-			<Input
+			<TextField
 				bind:value={iconSearch}
 				on:keyup={(evt) => {
 					iconSearch = evt.detail.value;

@@ -34,7 +34,6 @@
 			--box-shadow: var(--aura-container-drop-shadow);
 		}
 
-    ;
 		text-align: center;
 		border: 1px solid var(--aura-container-border-color);
 		border-radius: var(--aura-container-border-radius);

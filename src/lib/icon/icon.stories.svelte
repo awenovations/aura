@@ -17,7 +17,61 @@
 
 <script lang="ts">
 	import { Story, Template } from '@storybook/addon-svelte-csf';
+
+	import Input from '$lib/input/input.svelte';
+	import Dropdown from '$lib/dropdown/dropdown.svelte';
+
+	$: size = 'large';
+	$: iconSearch = '';
+
+	$: console.log(iconSearch);
+
+	let allIcons: Array<string> = [];
+
+	const fetchIconMeta = async () => {
+		const response = await fetch('/icons/meta.json');
+		const body = await response.json();
+		allIcons = Array.from(new Set(body.icons.map((icon) => icon.name)));
+	};
+
+	$: iconList = allIcons.filter((iconName) => iconName.includes(iconSearch));
+
+	fetchIconMeta();
 </script>
+
+<Template let:args>
+	<Icon {...args} />
+</Template>
+
+<Story name="All">
+	<div style="min-height: 300px;">
+		<div style="display: flex; gap: 10px;">
+			<Input
+				bind:value={iconSearch}
+				on:keyup={(evt) => {
+					iconSearch = evt.detail.value;
+				}}
+				placeholder="Type icon name..."
+			/>
+			<Dropdown
+				style="flex: 1; max-width: 100px;"
+				on:change={(evt) => {
+					size = evt.detail.value;
+				}}
+				currentValue={size}
+			>
+				<aura-option value="small">small</aura-option>
+				<aura-option value="medium">medium</aura-option>
+				<aura-option value="large">large</aura-option>
+			</Dropdown>
+		</div>
+		<div style="display: flex; gap: 10px; margin-top: 30px;">
+			{#each iconList as icon}
+				<Icon name={icon} {size} />
+			{/each}
+		</div>
+	</div>
+</Story>
 
 <Story
 	name="Small Icon"
@@ -26,10 +80,6 @@
 		size: 'small'
 	}}
 />
-
-<Template let:args>
-	<Icon {...args} />
-</Template>
 
 <Story
 	name="Medium Icon"

@@ -1,11 +1,9 @@
 <script lang="ts">
-  import { getContext } from 'svelte';
+	import { getContext } from 'svelte';
 
+	const story = getContext('story');
 
-   const story = getContext('story')
-
-   //$: console.log(_)
-
+	//$: console.log(_)
 </script>
 
 <div data-theme={'light'}>

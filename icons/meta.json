@@ -1,0 +1,23 @@
+{
+	"lastGenerated": 1720059251531,
+	"icons": [
+		{ "name": "arrow-circle-left", "size": "large" },
+		{ "name": "arrow-circle-left", "size": "medium" },
+		{ "name": "arrow-circle-left", "size": "small" },
+		{ "name": "bug", "size": "large" },
+		{ "name": "bug", "size": "medium" },
+		{ "name": "bug", "size": "small" },
+		{ "name": "caret-down", "size": "large" },
+		{ "name": "caret-down", "size": "medium" },
+		{ "name": "caret-down", "size": "small" },
+		{ "name": "microsoft-color", "size": "large" },
+		{ "name": "microsoft-color", "size": "medium" },
+		{ "name": "microsoft-color", "size": "small" },
+		{ "name": "plan", "size": "large" },
+		{ "name": "plan", "size": "medium" },
+		{ "name": "plan", "size": "small" },
+		{ "name": "user-story", "size": "large" },
+		{ "name": "user-story", "size": "medium" },
+		{ "name": "user-story", "size": "small" }
+	]
+}

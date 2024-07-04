@@ -46,7 +46,6 @@
 </button>
 
 <style lang="scss">
-
 	.aura-button {
 		&.loading {
 			padding-right: 22px;

@@ -14,13 +14,13 @@
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
 		"transform-tokens": "node ./src/tokens/transform-tokens.js",
-		"storybook": "npm run transform-tokens && storybook dev -p 6006",
-		"build-storybook": "npm run transform-tokens && storybook build",
+		"storybook": "npm run generate-icon-meta-data && npm run transform-tokens && storybook dev -p 6006",
+		"build-storybook": "npm run generate-icon-meta-data && npm run transform-tokens && storybook build",
 		"replace-icons": "replace-in-file //icons//g ../icons/ docs/**/*.* --isRegex",
 		"replace-svgs": "replace-in-file //svgs//g ../svgs/ docs/**/*.* --isRegex",
 		"replace-meta-json-for-gh-pages": "replace-in-file ../icons/meta.json /aura/icons/meta.json docs/**/*.*",
 		"generate-icon-meta-data": "node src/tokens/generate-icon-meta.js",
-		"build-storybook-for-pages": "rimraf docs && npm run transform-tokens && storybook build --output-dir docs && npm run replace-icons && npm run replace-svgs && npm run replace-meta-json-for-gh-pages && touch docs/.nojekyll"
+		"build-storybook-for-pages": "rimraf docs && npm run generate-icon-meta-data && npm run transform-tokens && storybook build --output-dir docs && npm run replace-icons && npm run replace-svgs && npm run replace-meta-json-for-gh-pages && touch docs/.nojekyll"
 	},
 	"exports": {
 		".": {

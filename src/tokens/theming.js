@@ -1,15 +1,15 @@
 import sass from 'sass';
-import path from 'path';
+import path from 'node:path';
+import { readFileSync } from 'fs';
 import { fileURLToPath } from 'url';
-import formattedVariables from './utils/formattedVariables.js';
 import fileHeader from './utils/fileHeader.js';
+import formattedVariables from './utils/formattedVariables.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const resetCss = readFileSync(path.resolve(`${__dirname}/../../node_modules/reset-css/reset.css`), 'utf-8');
 const globalCss = sass.compile(`${__dirname}/../globals.scss`).css;
-
-console.log('sass', );
 
 import { filteredTokens, matchDarkThemeToken, matchLightThemeToken } from './utils/tokenFilters.js';
 
@@ -80,6 +80,8 @@ const Theming = ({ dictionary, options, file }) => {
 			outputReferences
 		}).replace(/-dark-/gm, '-') +
 		'\n}\n\n' +
+    resetCss +
+		'\n\n' +
     globalCss
 	);
 };

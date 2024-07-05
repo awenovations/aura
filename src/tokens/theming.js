@@ -1,5 +1,15 @@
+import sass from 'sass';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import formattedVariables from './utils/formattedVariables.js';
 import fileHeader from './utils/fileHeader.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const globalCss = sass.compile(`${__dirname}/../globals.scss`).css;
+
+console.log('sass', );
 
 import { filteredTokens, matchDarkThemeToken, matchLightThemeToken } from './utils/tokenFilters.js';
 
@@ -69,7 +79,8 @@ const Theming = ({ dictionary, options, file }) => {
 			dictionary: groupedTokens.dark,
 			outputReferences
 		}).replace(/-dark-/gm, '-') +
-		'\n}\n'
+		'\n}\n\n' +
+    globalCss
 	);
 };
 

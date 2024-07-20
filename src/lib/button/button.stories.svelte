@@ -98,6 +98,12 @@
 	</div>
 </Story>
 
+<Story name="Left Align">
+	<div style="display: flex; flex-direction: column; gap: 10px; width: 300px;">
+		<Button fullWidth left />
+  </div>
+</Story>
+
 <Story
 	name="Pimary Filled"
 	args={{

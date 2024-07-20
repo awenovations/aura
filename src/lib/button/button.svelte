@@ -9,6 +9,7 @@
 	export let size: Props.ButtonSize = 'default';
 	export let fullWidth: boolean = false;
 	export let loading: boolean = false;
+	export let left: boolean = false;
 
 	const dispatch = createEventDispatcher<{
 		click: NonNullable<unknown>;
@@ -33,6 +34,7 @@
 	class:isDefaultSize={size === 'default'}
 	class:isSmall={size === 'small'}
 	class:fullWidth
+	class:left
 	on:click={onClick}
 	class={`aura-button ${$$restProps.class}`}
 >
@@ -137,6 +139,10 @@
 			width: 100%;
 			& .content {
 				justify-content: center;
+			}
+
+			&.left .content {
+				justify-content: left;
 			}
 		}
 

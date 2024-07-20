@@ -39,7 +39,8 @@
 			flex-direction: row;
 
       & .text {
-        margin: 0 0.625rem;
+        margin: auto 0.625rem;
+        height: min-content;
       }
 
       &:before,

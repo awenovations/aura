@@ -33,7 +33,9 @@
 />
 
 <Story name="Horizontal Text Divider">
-  <Divider>Divider With Text</Divider>
+  <div style='height: 7rem; display: flex;'>
+    <Divider>Divider With Text</Divider>
+  </div>
 </Story>
 
 <Story name="Vertical Text Divider">

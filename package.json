@@ -41,6 +41,7 @@
 		"./skeleton.svelte": "./dist/skeleton/skeleton.svelte",
 		"./alert.svelte": "./dist/alert/alert.svelte",
 		"./link.svelte": "./dist/link/link.svelte",
+		"./divider.svelte": "./dist/divider/divider.svelte",
 		"./dist/tokens/_variables.css": {
 			"import": "./dist/tokens/_variables.css",
 			"require": "./dist/tokens/_variables.css"

@@ -25,7 +25,6 @@
     }
 
 		display: flex;
-    height: 100%;
     flex: 1;
 
     &:before,
@@ -37,6 +36,7 @@
 
 		&.horizontal {
 			flex-direction: row;
+      height: min-content;
 
       & .text {
         margin: auto 0.625rem;
@@ -51,12 +51,13 @@
 		}
 
 		&.vertical {
+      height: 100%;
+			flex-direction: column;
+
       & .text {
         margin: 0.625rem 0;
         text-align: center;
       }
-
-			flex-direction: column;
 
       &:before,
       &:after {
@@ -64,6 +65,5 @@
         transform: translateX(-0.5px);
       }
 		}
-
 	}
 </style>

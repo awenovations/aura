@@ -30,3 +30,9 @@
 		><span slot="errors">Something went wrong here!</span></TextField
 	>
 </Story>
+
+<Story name="Label">
+	<TextField placeholder="Placeholder...">
+    <span slot="label">Label</span>
+  </TextField>
+</Story>

@@ -98,6 +98,7 @@
 		"@storybook/addon-themes": "^8.1.11",
 		"classnames": "^2.5.1",
 		"replace-in-file": "^8.0.1",
-		"reset-css": "^5.0.2"
+		"reset-css": "^5.0.2",
+		"uuid": "^10.0.0"
 	}
 }

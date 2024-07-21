@@ -80,51 +80,53 @@
 	}
 </script>
 
-{#if $$slots.label}
-	<label for={id} class="label">
-		<slot name="label" />
-	</label>
-{/if}
-<FormItem
-	bind:required
-	bind:disabled
-	{width}
-	{height}
-	{size}
-	{mode}
-	error={($$slots.errors || hasErrorsInternal) && showErrors}
->
-	<slot name="left-icon" slot="left-icon" />
-	<div class="text-field-container">
-		<input
-			{...$$restProps}
-			class={classNames('aura-text-field', $$restProps.class)}
-			{disabled}
-			{type}
-			{value}
-			{id}
-			bind:this={input}
-			on:change={forwardEvent}
-			on:input={onInput}
-			on:input={forwardEvent}
-			on:focus={forwardEvent}
-			on:blur={forwardEvent}
-			on:keydown={forwardEvent}
-			on:keypress={forwardEvent}
-			on:keyup={forwardEvent}
-			on:focusin={forwardEvent}
-			on:focusout={forwardEvent}
-		/>
-		<div class="extra">
-			<slot name="extra" />
+<div class="aura-text-field-wrapper">
+	{#if $$slots.label}
+		<label for={id} class="label">
+			<slot name="label" />
+		</label>
+	{/if}
+	<FormItem
+		bind:required
+		bind:disabled
+		{width}
+		{height}
+		{size}
+		{mode}
+		error={($$slots.errors || hasErrorsInternal) && showErrors}
+	>
+		<slot name="left-icon" slot="left-icon" />
+		<div class="text-field-container">
+			<input
+				{...$$restProps}
+				class={classNames('aura-text-field', $$restProps.class)}
+				{disabled}
+				{type}
+				{value}
+				{id}
+				bind:this={input}
+				on:change={forwardEvent}
+				on:input={onInput}
+				on:input={forwardEvent}
+				on:focus={forwardEvent}
+				on:blur={forwardEvent}
+				on:keydown={forwardEvent}
+				on:keypress={forwardEvent}
+				on:keyup={forwardEvent}
+				on:focusin={forwardEvent}
+				on:focusout={forwardEvent}
+			/>
+			<div class="extra">
+				<slot name="extra" />
+			</div>
 		</div>
-	</div>
-</FormItem>
-{#if showErrors}
-	<div class="errors-text">
-		<slot name="errors" />
-	</div>
-{/if}
+	</FormItem>
+	{#if showErrors}
+		<div class="errors-text">
+			<slot name="errors" />
+		</div>
+	{/if}
+</div>
 
 <style lang="scss">
 	.aura-text-field {
@@ -136,6 +138,15 @@
 	.aura-text-field::-webkit-calendar-picker-indicator {
 		opacity: 0;
 		flex: 1;
+	}
+
+	.aura-text-field-wrapper {
+		display: flex;
+		flex-direction: column;
+
+		label {
+			text-align: left;
+		}
 	}
 
 	.text-field-container {

@@ -32,7 +32,7 @@
 </Story>
 
 <Story name="Label">
-	<TextField placeholder="Placeholder...">
+  <TextField placeholder="Placeholder...">
     <span slot="label">Label</span>
   </TextField>
 </Story>

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type * as Props from './props';
+  import classNames from 'classnames';
 
 	export let kind: Props.ContainerKind = 'filled';
 	export let variant: Props.ContainerVariants = 'flat';
@@ -11,7 +12,7 @@
 	class:isOutlined={kind === 'outlined'}
 	class:isFlat={variant === 'flat'}
 	class:isElevated={variant === 'elevated'}
-	class={`aura-container ${$$restProps.class}`}
+	class={classNames('aura-container', $$restProps.class)}
 >
 	<slot />
 </div>
@@ -34,6 +35,8 @@
 			--box-shadow: var(--aura-container-drop-shadow);
 		}
 
+    width: fit-content;
+    height: fit-content;
 		text-align: center;
 		border: 1px solid var(--aura-container-border-color);
 		border-radius: var(--aura-container-border-radius);

@@ -2,6 +2,7 @@
 	import type * as Props from './props';
   import classNames from 'classnames';
 
+  export let clearPadding: boolean = false;
 	export let kind: Props.ContainerKind = 'filled';
 	export let variant: Props.ContainerVariants = 'flat';
 </script>
@@ -12,6 +13,7 @@
 	class:isOutlined={kind === 'outlined'}
 	class:isFlat={variant === 'flat'}
 	class:isElevated={variant === 'elevated'}
+  class:setPadding={!clearPadding}
 	class={classNames('aura-container', $$restProps.class)}
 >
 	<slot />
@@ -35,6 +37,10 @@
 			--box-shadow: var(--aura-container-drop-shadow);
 		}
 
+    &.setPadding {
+      padding: var(--aura-container-padding);
+    }
+
     width: fit-content;
     height: fit-content;
 		text-align: center;
@@ -42,6 +48,5 @@
 		border-radius: var(--aura-container-border-radius);
 		background-color: var(--bg);
 		box-shadow: var(--box-shadow);
-		padding: var(--aura-container-padding);
 	}
 </style>

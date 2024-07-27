@@ -25,8 +25,8 @@
 			color: var(--fill);
 		}
 
-		display: flex;
 		flex: 1;
+		display: flex;
 
 		&:before,
 		&:after {

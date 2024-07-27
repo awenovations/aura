@@ -1,6 +1,7 @@
 <script lang="ts" context="module">
 	import '../../app.scss';
 
+	import Divider from '$lib/divider/divider.svelte';
 	import Container from '$lib/container/container.svelte';
 	import { containerKinds, containerVariants } from '$lib/container/props.ts';
 
@@ -54,3 +55,19 @@
 		variant: 'elevated'
 	}}
 />
+
+<Story name="Show Container Padding">
+	<Container clearPadding={false}>
+		<div style="height: 7rem; display: flex;">
+			<Divider direction="vertical">Container with padding</Divider>
+		</div>
+	</Container>
+</Story>
+
+<Story name="No Container Padding">
+	<Container clearPadding>
+		<div style="height: 7rem; display: flex;">
+			<Divider direction="vertical">Container with no padding</Divider>
+		</div>
+	</Container>
+</Story>

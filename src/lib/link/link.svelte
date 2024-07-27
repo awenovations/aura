@@ -15,6 +15,7 @@
 
 <style lang="scss">
 	.aura-link {
+		cursor: pointer;
 		color: var(--aura-link-color);
 		text-decoration: none;
 

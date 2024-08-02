@@ -1,6 +1,6 @@
 {
 	"name": "@awenovations/aura",
-	"version": "0.0.15",
+	"version": "0.0.16",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "npm run transform-tokens && vite build && npm run package",

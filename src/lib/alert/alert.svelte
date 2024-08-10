@@ -1,8 +1,11 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
 	import type * as Props from './props';
 
 	export let severity: Props.AlertSeverity = 'informational';
 	export let hide: boolean = false;
+	export let autoDismissTime: number;
+
 
 	let hideAlert = false;
 
@@ -15,6 +18,15 @@
 			hideAlert = false;
 		}
 	}
+
+  onMount(() => {
+    if(autoDismissTime) {
+      setTimeout(() => {
+        hide = true;
+      }, autoDismissTime);
+    }
+  });
+
 </script>
 
 <div

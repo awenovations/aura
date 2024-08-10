@@ -16,7 +16,7 @@
 </script>
 
 <Template let:args>
-	<TextField {...args} placeholder="Placeholder..." />
+  <TextField {...args} placeholder="Placeholder..." />
 </Template>
 
 <Story name="Default input" />

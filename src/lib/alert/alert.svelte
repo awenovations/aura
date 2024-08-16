@@ -46,31 +46,27 @@
 	.aura-alert {
 		&,
 		&.isInformational {
-			--border-color: var(--aura-informational-30);
 			--drop-shadow: var(--aura-alert-drop-shadow);
-			--bg: var(--aura-informational-20);
-			--font-color: var(--aura-informational-50);
+			--bg: var(--aura-informational-30);
+			--font-color: var(--aura-informational-60);
 		}
 
 		&.isSuccess {
-			--border-color: var(--aura-success-30);
 			--drop-shadow: var(--aura-alert-drop-shadow);
-			--bg: var(--aura-success-20);
-			--font-color: var(--aura-success-50);
+			--bg: var(--aura-success-30);
+			--font-color: var(--aura-success-60);
 		}
 
 		&.isError {
-			--border-color: var(--aura-error-30);
 			--drop-shadow: var(--aura-alert-drop-shadow);
-			--bg: var(--aura-error-10);
-			--font-color: var(--aura-error-50);
+			--bg: var(--aura-error-30);
+			--font-color: var(--aura-error-60);
 		}
 
 		&.isWarning {
-			--border-color: var(--aura-warning-30);
 			--drop-shadow: var(--aura-alert-drop-shadow);
-			--bg: var(--aura-warning-10);
-			--font-color: var(--aura-warning-50);
+			--bg: var(--aura-warning-30);
+			--font-color: var(--aura-warning-60);
 		}
 
 		&.hideAlert {

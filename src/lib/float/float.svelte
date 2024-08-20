@@ -1,10 +1,26 @@
 <script lang="ts">
-	import type { Placement } from '@floating-ui/dom';
-	import { computePosition, autoUpdate } from '@floating-ui/dom';
+	import type { MiddlewareData, Placement } from '@floating-ui/dom';
+	import {
+		computePosition,
+		autoUpdate,
+		offset as offsetMiddleware,
+		arrow as floatingArrow
+	} from '@floating-ui/dom';
 
 	export let target: HTMLElement;
 
 	export let placement: Placement = 'bottom';
+
+	export let offset: number = 0;
+
+	export let middleware: Array<MiddlewareData> = [];
+
+	export let onComputedPosition: (computed: {
+		x: number;
+		y: number;
+		middlewareData: MiddlewareData;
+		placement: Placement;
+	}) => void = undefined;
 
 	let float: HTMLElement;
 
@@ -18,14 +34,22 @@
 				if (!target || !float) return;
 
 				computePosition(target, float, {
-					placement: placement
-				}).then(({ x, y }) => {
+					placement: placement,
+					middleware: [offsetMiddleware(offset), ...middleware]
+				}).then(({ x, y, middlewareData, placemen }) => {
 					if (float) {
 						Object.assign(float.style, {
 							left: `${x}px`,
 							top: `${y}px`
 						});
 					}
+
+					onComputedPosition?.({
+						x,
+						y,
+						middlewareData,
+						placement
+					});
 				});
 			});
 		}

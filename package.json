@@ -1,6 +1,6 @@
 {
 	"name": "@awenovations/aura",
-	"version": "0.0.19",
+	"version": "0.0.20",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "npm run transform-tokens && vite build && npm run package",
@@ -42,6 +42,7 @@
 		"./alert.svelte": "./dist/alert/alert.svelte",
 		"./link.svelte": "./dist/link/link.svelte",
 		"./divider.svelte": "./dist/divider/divider.svelte",
+		"./tooltip.svelte": "./dist/tooltip/tooltip.svelte",
 		"./toast.svelte": "./dist/toast/toast.svelte",
 		"./toast.store": "./dist/toast/toast.store.js",
 		"./dist/tokens/_variables.css": {

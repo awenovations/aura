@@ -1,8 +1,8 @@
 <script lang="ts">
 	export let showFocusOutline: boolean = false;
 	export let disabled = false;
-	export let width = undefined;
-	export let height = undefined;
+	export let width : string | undefined = undefined;
+	export let height : string | undefined = undefined;
 	export let error = false;
 </script>
 
@@ -18,7 +18,7 @@
 
 <style lang="scss">
 	.aura-form-item {
-		height: 35px;
+		min-height: 35px;
 		background-color: var(--aura-form-item-background-color);
 		border: 1px solid var(--aura-form-item-border-color);
 		border-radius: var(--aura-form-item-border-radius);

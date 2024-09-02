@@ -3,7 +3,7 @@
 	import classNames from 'classnames';
 	import { createEventDispatcher } from 'svelte';
 	import type { SvelteHTMLElements } from 'svelte/elements';
-	import FormItem, { type Mode, type Size } from '$lib/form-item/form-item.svelte';
+	import FormItem from '$lib/form-item/form-item.svelte';
 
 	type OverrideProps = 'id' | 'type' | 'value' | 'size' | 'class' | `on:${string}`;
 	type AuraTextFieldTypeAttribute =
@@ -22,22 +22,20 @@
 		| 'text'
 		| 'time'
 		| 'url'
-		| 'week';
+		| 'week'
+		| 'multi';
+
 	type $$Props = Omit<SvelteHTMLElements['input'], OverrideProps> & {
 		type?: AuraTextFieldTypeAttribute;
 		value?: string | number | boolean;
-		size?: Size;
 		showErrors?: boolean;
-		mode?: Mode | undefined;
 	};
 
 	export let type: $$Props['type'] = 'text';
 	export let value: $$Props['value'] = '';
 	export let required = false;
 	export let disabled = false;
-	export let size: Size = 'normal';
 	export let showErrors = false;
-	export let mode: Mode | undefined = undefined;
 	export let width = undefined;
 	export let height = undefined;
 	export let id = uuidv4();
@@ -91,31 +89,50 @@
 		bind:disabled
 		{width}
 		{height}
-		{size}
-		{mode}
 		error={($$slots.errors || hasErrorsInternal) && showErrors}
 	>
 		<slot name="left-icon" slot="left-icon" />
-		<div class="text-field-container">
-			<input
-				{...$$restProps}
-				class={classNames('aura-text-field', $$restProps.class)}
-				{disabled}
-				{type}
-				{value}
-				{id}
-				bind:this={input}
-				on:change={forwardEvent}
-				on:input={onInput}
-				on:input={forwardEvent}
-				on:focus={forwardEvent}
-				on:blur={forwardEvent}
-				on:keydown={forwardEvent}
-				on:keypress={forwardEvent}
-				on:keyup={forwardEvent}
-				on:focusin={forwardEvent}
-				on:focusout={forwardEvent}
-			/>
+		<div class={classNames('text-field-container', { multi: type === 'multi' })}>
+			{#if type === 'multi'}
+				<textarea
+					{...$$restProps}
+					class={classNames('aura-text-field', $$restProps.class)}
+					{disabled}
+					{id}
+					style="height: 100%;"
+					bind:this={input}
+					on:change={forwardEvent}
+					on:input={onInput}
+					on:input={forwardEvent}
+					on:focus={forwardEvent}
+					on:blur={forwardEvent}
+					on:keydown={forwardEvent}
+					on:keypress={forwardEvent}
+					on:keyup={forwardEvent}
+					on:focusin={forwardEvent}
+					on:focusout={forwardEvent}>{value}</textarea
+				>
+			{:else}
+				<input
+					{...$$restProps}
+					class={classNames('aura-text-field', $$restProps.class)}
+					{disabled}
+					{type}
+					{value}
+					{id}
+					bind:this={input}
+					on:change={forwardEvent}
+					on:input={onInput}
+					on:input={forwardEvent}
+					on:focus={forwardEvent}
+					on:blur={forwardEvent}
+					on:keydown={forwardEvent}
+					on:keypress={forwardEvent}
+					on:keyup={forwardEvent}
+					on:focusin={forwardEvent}
+					on:focusout={forwardEvent}
+				/>
+			{/if}
 			<div class="extra">
 				<slot name="extra" />
 			</div>
@@ -129,6 +146,10 @@
 </div>
 
 <style lang="scss">
+	.multi {
+		height: 100%;
+	}
+
 	.aura-text-field {
 		all: unset;
 		width: 100%;

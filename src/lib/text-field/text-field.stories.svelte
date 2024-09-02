@@ -37,6 +37,24 @@
   </TextField>
 </Story>
 
+<Story name="Fixed Width">
+  <TextField width="100%" placeholder="Placeholder...">
+    <span slot="label">Label</span>
+  </TextField>
+</Story>
+
+<Story name="Full Width">
+  <div style="display: flex; gap: 1rem;">
+    <TextField fullWidth placeholder="Placeholder...">
+      <span slot="label">Full Width</span>
+    </TextField>
+
+    <TextField placeholder="Placeholder...">
+      <span slot="label">Normal width</span>
+    </TextField>
+  </div>
+</Story>
+
 <Story name="Multi Line">
   <TextField height='100px' value="Test thing" type="multi" placeholder="Placeholder...">
     <span slot="label">Label</span>

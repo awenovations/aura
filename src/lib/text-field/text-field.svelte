@@ -31,6 +31,7 @@
 		showErrors?: boolean;
 	};
 
+	export let fullWidth: boolean = false;
 	export let type: $$Props['type'] = 'text';
 	export let value: $$Props['value'] = '';
 	export let required = false;
@@ -78,7 +79,7 @@
 	}
 </script>
 
-<div class="aura-text-field-wrapper">
+<div class={classNames('aura-text-field-wrapper', { fullWidth, userSetWidth: !!width })}>
 	{#if $$slots.label}
 		<label for={id} class="label">
 			<slot name="label" />
@@ -164,6 +165,14 @@
 	.aura-text-field-wrapper {
 		display: flex;
 		flex-direction: column;
+
+		&:not(.fullWidth):not(.userSetWidth) {
+			max-width: 400px;
+		}
+
+		&.fullWidth {
+			flex: 1;
+		}
 
 		label {
 			text-align: left;

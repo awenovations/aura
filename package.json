@@ -32,6 +32,7 @@
 		"./icon.svelte": "./dist/icon/icon.svelte",
 		"./container.svelte": "./dist/container/container.svelte",
 		"./dropdown.svelte": "./dist/dropdown/dropdown.svelte",
+		"./panel.svelte": "./dist/panel/panel.svelte",
 		"./form-item.svelte": "./dist/form-item/form-item.svelte",
 		"./zero-state.svelte": "./dist/zero-state/zero-state.svelte",
 		"./error-state.svelte": "./dist/error-state/error-state.svelte",

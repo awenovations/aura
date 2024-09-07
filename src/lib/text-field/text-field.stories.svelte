@@ -56,7 +56,7 @@
 </Story>
 
 <Story name="Multi Line">
-  <TextField height='100px' value="Test thing" type="multi" placeholder="Placeholder...">
+  <TextField height='100px' value="Test multiline input" type="multi" placeholder="Placeholder...">
     <span slot="label">Label</span>
   </TextField>
 </Story>

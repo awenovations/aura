@@ -3,6 +3,7 @@
 
 	import Icon from '$lib/icon/icon.svelte';
 	import { iconSizes } from '$lib/icon/props.ts';
+	import Tooltip from '$lib/tooltip/tooltip.svelte';
 
 	export const meta = {
 		title: 'AURA/Icon',
@@ -67,7 +68,9 @@
 		</div>
 		<div style="display: flex; gap: 10px; margin-top: 30px;">
 			{#each iconList as icon}
-				<Icon name={icon} {size} />
+				<Tooltip placement="top" content={`Icon Name: ${icon}`}>
+					<Icon name={icon} {size} />
+				</Tooltip>
 			{/each}
 		</div>
 	</div>

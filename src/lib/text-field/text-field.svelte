@@ -100,6 +100,7 @@
 					class={classNames('aura-text-field', $$restProps.class)}
 					{disabled}
 					{id}
+					{required}
 					style="height: 100%;"
 					bind:this={input}
 					on:change={forwardEvent}
@@ -121,6 +122,7 @@
 					{type}
 					{value}
 					{id}
+					{required}
 					bind:this={input}
 					on:change={forwardEvent}
 					on:input={onInput}

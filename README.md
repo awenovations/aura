@@ -1,6 +1,6 @@
-# Aura Design System
+# Aura Component Library
 
-This is the aura design system, it based on tokens exported from this figma file: https://www.figma.com/design/rm5Wj9BOHd6qPaZfgspeBy/Aura-Design-System?node-id=0-1&t=pLCSXoRBcVVurliQ-0
+This is the aura component library, it based on tokens exported from this figma file: https://www.figma.com/design/rm5Wj9BOHd6qPaZfgspeBy/Aura-Design-System?node-id=0-1&t=pLCSXoRBcVVurliQ-0
 
 Can be installed with npm: [@awenovations/aura](https://www.npmjs.com/package/@awenovations/aura)
 

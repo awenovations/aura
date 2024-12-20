@@ -158,7 +158,7 @@
 		showFocusOutline={isOpen || isFocused}
 		error={($$slots.errors || hasErrorsInternal) && showErrors}
 	>
-		<button {id} class="trigger" on:focus={handleFocus}>
+		<button {id} class="trigger" on:focus={handleFocus} type="button">
 			{#if currentValue}
 				{currentValue}
 			{:else}
@@ -191,7 +191,7 @@
 
 <style lang="scss">
 	.aura-dropdown {
-		button {
+		.trigger {
 			all: unset;
 			width: 100%;
 			display: flex;

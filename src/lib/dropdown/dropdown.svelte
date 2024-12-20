@@ -17,6 +17,7 @@
 	export let isOpen = false;
 	export let isFocused = false;
 	export let showErrors = false;
+	export let name: string | undefined;
 	export let currentValue: string | undefined;
 
 	let target: HTMLElement;
@@ -134,10 +135,10 @@
 	on:keydown|stopPropagation={handleSelectMenuKeyboardActions}
 	on:click|stopPropagation={onClick}
 >
-	<FormItem
-		showFocusOutline={isOpen || isFocused}
-		error={($$slots.errors) && showErrors}
-	>
+	{#if name?.length > 0}
+    <input {name} type="hidden" bind:value={currentValue} />
+	{/if}
+	<FormItem showFocusOutline={isOpen || isFocused} error={$$slots.errors && showErrors}>
 		<button class="trigger" on:focus={handleFocus}>
 			{#if currentValue}
 				{currentValue}

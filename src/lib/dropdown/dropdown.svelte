@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { v4 as uuidv4 } from 'uuid';
+	import classNames from 'classnames';
 	import Icon from '$lib/icon/icon.svelte';
 	import Float from '$lib/float/float.svelte';
 	import { createEventDispatcher } from 'svelte';
@@ -21,6 +22,7 @@
 	export let isFocused = false;
 	export let showErrors = false;
 	export let name: string | undefined;
+	export let fullWidth: boolean = false;
 	export let currentValue: string | undefined;
 
 	let target: HTMLElement;
@@ -79,7 +81,7 @@
 				currentValue = value;
 			}
 
-			hasErrorsInternal = required && !value;
+			hasErrorsInternal = required && !currentValue;
 
 			dispatch('change', {
 				value
@@ -134,7 +136,7 @@
 
 <div
 	{...$$restProps}
-	class={`aura-dropdown ${$$restProps.class}`}
+	class={classNames(`aura-dropdown ${$$restProps.class}`, { fullWidth })}
 	bind:this={target}
 	tabindex="-1"
 	role="button"
@@ -152,6 +154,7 @@
 		<input {name} type="hidden" bind:value={currentValue} />
 	{/if}
 	<FormItem
+		bind:required
 		showFocusOutline={isOpen || isFocused}
 		error={($$slots.errors || hasErrorsInternal) && showErrors}
 	>
@@ -199,6 +202,14 @@
 				margin-top: 2px;
 				margin-left: -5px;
 			}
+		}
+
+		&:not(.fullWidth) {
+			max-width: 400px;
+		}
+
+		&.fullWidth {
+			flex: 1;
 		}
 	}
 

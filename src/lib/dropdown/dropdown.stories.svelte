@@ -73,10 +73,29 @@
 </Story>
 
 <Story name="Label">
-	<Dropdown placeholder="Placeholder...">
-		<span slot="label">Label</span>
-		<aura-option value="Option 1">Option 1</aura-option>
-		<aura-option value="Option 2">Option 2</aura-option>
-		<aura-option>Option 3</aura-option>
-	</Dropdown>
+	<div style="height: 160px; margin: 0 auto;">
+    <Dropdown placeholder="Placeholder...">
+      <span slot="label">Label</span>
+      <aura-option value="Option 1">Option 1</aura-option>
+      <aura-option value="Option 2">Option 2</aura-option>
+      <aura-option>Option 3</aura-option>
+    </Dropdown>
+  </div>
+</Story>
+
+<Story name="Full Width">
+  <div style="display: flex; gap: 1rem;">
+    <Dropdown fullWidth placeholder="Placeholder...">
+      <span slot="label">Label</span>
+      <aura-option value="Option 1">Option 1</aura-option>
+      <aura-option value="Option 2">Option 2</aura-option>
+      <aura-option>Option 3</aura-option>
+    </Dropdown>
+    <Dropdown placeholder="Placeholder...">
+      <span slot="label">Label</span>
+      <aura-option value="Option 1">Option 1</aura-option>
+      <aura-option value="Option 2">Option 2</aura-option>
+      <aura-option>Option 3</aura-option>
+    </Dropdown>
+  </div>
 </Story>

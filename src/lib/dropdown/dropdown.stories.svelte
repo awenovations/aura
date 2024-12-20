@@ -60,7 +60,6 @@
 	</div>
 </Story>
 
-
 <Story name="Error'd Input">
 	<div style="height: 160px; max-width: 400px; margin: 0 auto;">
 		<Dropdown showErrors>
@@ -68,7 +67,16 @@
 			<aura-option value="Option 1">Option 1</aura-option>
 			<aura-option value="Option 2">Option 2</aura-option>
 			<aura-option>Option 3</aura-option>
-      <span slot="errors">Something went wrong here!</span>
+			<span slot="errors">Something went wrong here!</span>
 		</Dropdown>
 	</div>
+</Story>
+
+<Story name="Label">
+	<Dropdown placeholder="Placeholder...">
+		<span slot="label">Label</span>
+		<aura-option value="Option 1">Option 1</aura-option>
+		<aura-option value="Option 2">Option 2</aura-option>
+		<aura-option>Option 3</aura-option>
+	</Dropdown>
 </Story>

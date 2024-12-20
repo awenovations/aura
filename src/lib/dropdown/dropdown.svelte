@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { v4 as uuidv4 } from 'uuid';
 	import Icon from '$lib/icon/icon.svelte';
 	import Float from '$lib/float/float.svelte';
 	import { createEventDispatcher } from 'svelte';
@@ -14,7 +15,9 @@
 		change: Change;
 	}>();
 
+	export let id = uuidv4();
 	export let isOpen = false;
+	export let required = false;
 	export let isFocused = false;
 	export let showErrors = false;
 	export let name: string | undefined;
@@ -22,6 +25,8 @@
 
 	let target: HTMLElement;
 	let menu: HTMLElement;
+
+	let hasErrorsInternal = false;
 
 	$: minWidth = (isOpen !== undefined && target?.getBoundingClientRect().width) || 0;
 
@@ -73,6 +78,8 @@
 			if (!$$props.currentValue) {
 				currentValue = value;
 			}
+
+			hasErrorsInternal = required && !value;
 
 			dispatch('change', {
 				value
@@ -135,11 +142,20 @@
 	on:keydown|stopPropagation={handleSelectMenuKeyboardActions}
 	on:click|stopPropagation={onClick}
 >
-	{#if name?.length > 0}
-    <input {name} type="hidden" bind:value={currentValue} />
+	{#if $$slots.label}
+		<label for={id} class="label">
+			<slot name="label" />
+		</label>
 	{/if}
-	<FormItem showFocusOutline={isOpen || isFocused} error={$$slots.errors && showErrors}>
-		<button class="trigger" on:focus={handleFocus}>
+
+	{#if name?.length > 0}
+		<input {name} type="hidden" bind:value={currentValue} />
+	{/if}
+	<FormItem
+		showFocusOutline={isOpen || isFocused}
+		error={($$slots.errors || hasErrorsInternal) && showErrors}
+	>
+		<button {id} class="trigger" on:focus={handleFocus}>
 			{#if currentValue}
 				{currentValue}
 			{:else}

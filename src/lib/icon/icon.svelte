@@ -8,7 +8,7 @@
 </script>
 
 <div
-	class="aura-icon"
+	class={`aura-icon ${$$restProps.class ?? ''}`}
 	class:isLarge={size === 'large'}
 	class:isMedium={size === 'medium'}
 	class:isSmall={size === 'small'}

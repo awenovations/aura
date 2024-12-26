@@ -134,82 +134,92 @@
 	};
 </script>
 
-<div
-	{...$$restProps}
-	class={classNames(`aura-dropdown ${$$restProps.class}`, { fullWidth })}
-	bind:this={target}
-	tabindex="-1"
-	role="button"
-	use:clickOutside={(isOpen || isFocused) && handleBlur}
-	on:keydown|stopPropagation={handleSelectMenuKeyboardActions}
-	on:click|stopPropagation={onClick}
->
-	{#if $$slots.label}
-		<label for={id} class="label">
-			<slot name="label" />
-		</label>
-	{/if}
-
-	{#if name?.length > 0}
-		<input {name} type="hidden" bind:value={currentValue} />
-	{/if}
-	<FormItem
-		bind:required
-		showFocusOutline={isOpen || isFocused}
-		error={($$slots.errors || hasErrorsInternal) && showErrors}
+<div class={classNames('aura-dropdown-wrapper', $$restProps.class, { fullWidth })}>
+	<div
+		{...$$restProps}
+		class={`aura-dropdown`}
+		bind:this={target}
+		tabindex="-1"
+		role="button"
+		use:clickOutside={(isOpen || isFocused) && handleBlur}
+		on:keydown|stopPropagation={handleSelectMenuKeyboardActions}
+		on:click|stopPropagation={onClick}
 	>
-		<button {id} class="trigger" on:focus={handleFocus} type="button">
-			{#if currentValue}
-				{currentValue}
-			{:else}
-				<slot name="placeholder">select...</slot>
-			{/if}
-			<Icon name="caret-down" size="small" />
-		</button>
-	</FormItem>
-	{#if isOpen}
-		<Float {target}>
-			<div
-				bind:this={menu}
-				role="menu"
-				tabindex="-1"
-				class="aura-menu"
-				style:--aura-menu-control-width={`${minWidth}px`}
-				on:keypress={handleSelectMenuKeyboardActions}
-				on:click|stopPropagation={handleMenuOptionSelectEvent}
-			>
-				<slot />
-			</div>
-		</Float>
+		{#if $$slots.label}
+			<label for={id} class="label">
+				<slot name="label" />
+			</label>
+		{/if}
+
+		{#if name?.length > 0}
+			<input {name} type="hidden" bind:value={currentValue} />
+		{/if}
+		<FormItem
+			bind:required
+			showFocusOutline={isOpen || isFocused}
+			error={($$slots.errors || hasErrorsInternal) && showErrors}
+		>
+			<button {id} class="trigger" on:focus={handleFocus} type="button">
+				{#if currentValue}
+					{currentValue}
+				{:else}
+					<slot name="placeholder">select...</slot>
+				{/if}
+				<Icon name="caret-down" size="small" />
+			</button>
+		</FormItem>
+		{#if isOpen}
+			<Float {target}>
+				<div
+					bind:this={menu}
+					role="menu"
+					tabindex="-1"
+					class="aura-menu"
+					style:--aura-menu-control-width={`${minWidth}px`}
+					on:keypress={handleSelectMenuKeyboardActions}
+					on:click|stopPropagation={handleMenuOptionSelectEvent}
+				>
+					<slot />
+				</div>
+			</Float>
+		{/if}
+	</div>
+	{#if showErrors}
+		<div class="errors-text">
+			<slot name="errors" />
+		</div>
 	{/if}
 </div>
-{#if showErrors}
-	<div class="errors-text">
-		<slot name="errors" />
-	</div>
-{/if}
 
 <style lang="scss">
-	.aura-dropdown {
-		.trigger {
-			all: unset;
-			width: 100%;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			:global(.icon) {
-				--icon-color: var(--aura-dropdown-open-icon-color);
-				margin-top: 2px;
-				margin-left: -5px;
-			}
-		}
+	.aura-dropdown-wrapper {
+		width: fit-content;
+		display: flex;
+		flex-direction: column;
 
 		&:not(.fullWidth) {
 			max-width: 400px;
+			min-width: 100px;
 		}
 
 		&.fullWidth {
 			flex: 1;
+		}
+
+		.aura-dropdown {
+			.trigger {
+				all: unset;
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				gap: 8px;
+
+				:global(.icon) {
+					--icon-color: var(--aura-dropdown-open-icon-color);
+					margin-top: 2px;
+				}
+			}
 		}
 	}
 

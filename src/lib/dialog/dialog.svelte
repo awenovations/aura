@@ -11,7 +11,7 @@
 	export let onCancel: () => void = () => {};
 </script>
 
-<Container clearPadding variant="elevated" class={classNames('dialog', $$restProps.class)}>
+<Container {...$$restProps} clearPadding variant="elevated" class={classNames('dialog', $$restProps.class)}>
 	<slot>Are you sure you wish to take this action?</slot>
 	<div class="action-buttons">
 		<Button size="small" on:click={onCancel}>{cancelText}</Button>

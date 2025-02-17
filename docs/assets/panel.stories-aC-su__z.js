@@ -1,0 +1,25 @@
+import{a as o,b as u,t as M}from"./template-B77arBy_.js";import{p as T,t as R,a as U,c as f,d as x,P as N,Q as O,f as Q,g as k,b as B,s as g,n as j,m as D}from"./context-CkYINwjE.js";import{l as C,p as h,i as L,s as F,a as G}from"./props-C038bvN8.js";import{c as H,d as I}from"./create-runtime-stories-DR-pRHrr.js";import{s as J}from"./slot-CgV10kGK.js";import{c as K}from"./attributes-Jce5emvo.js";import{s as W,t as X}from"./class-PipbczXD.js";import{s as A}from"./style-PwPRnE0L.js";import{c as Y}from"./index-DUolvyrz.js";import{B as Z}from"./button-CH_prg_4.js";import"./index-D-8MO0q_.js";import"./index-BHYIh-Xd.js";import"./_commonjsHelpers-Cpj98o6Y.js";import"./attributes-Dy7xLB0O.js";import"./index-client-Nm16036z.js";import"./progress-ring-B0c0QzUw.js";var ee=u('<div><div class="internal-wrapper svelte-1h21dae"><!></div></div>');function $(y,e){const a=C(e,["children","$$slots","$$events","$$legacy"]),n=C(a,["placement","width","height","open"]);T(e,!1);let s=h(e,"placement",8,"right"),i=h(e,"width",8,"41%"),r=h(e,"height",8,"41%"),p=h(e,"open",8,!1);L();var t=ee(),P=f(t),l=f(P);J(l,e,"default",{},null),R((c,d,b)=>{W(t,K(c),"svelte-1h21dae"),X(t,"open",p()),A(t,"--width",d),A(t,"--height",b)},[()=>Y("panel",s(),n.class),()=>["right","left"].includes(s())?i():"100%",()=>["top","bottom"].includes(s())?r():"100%"],x),o(y,t),U()}$.__docgen={version:3,name:"panel.svelte",data:[{name:"placement",visibility:"public",keywords:[],kind:"let",type:{kind:"type",type:"any",text:"any"},static:!1,readonly:!1,defaultValue:'"right"'},{name:"width",visibility:"public",keywords:[],kind:"let",type:{kind:"type",type:"string",text:"string"},static:!1,readonly:!1,defaultValue:'"41%"'},{name:"height",visibility:"public",keywords:[],kind:"let",type:{kind:"type",type:"string",text:"string"},static:!1,readonly:!1,defaultValue:'"41%"'},{name:"open",visibility:"public",keywords:[],kind:"let",type:{kind:"type",type:"boolean",text:"boolean"},static:!1,readonly:!1,defaultValue:"false"}],computed:[],methods:[],components:[],description:null,keywords:[],events:[],slots:[{keywords:[],visibility:"public",description:"",name:"default"}],refs:[]};const te=["top","bottom","right","left"],ae={title:"AURA/Panel",component:$,tags:["autodocs"],argTypes:{placement:{control:"select",options:te}}},{Story:v}=I();var ne=u('<div class="panel-content svelte-fke7p"> </div>'),se=u('<div style="height: 100%; min-height: 250px; width: 100%;"><!> <!></div>'),le=u("<!> <!> <!> <!>",1);function V(y,e){T(e,!1);const a=D(),n=(P,l=j)=>{var c=se(),d=f(c);const b=x(()=>`${l().placement}-button`);Z(d,{get class(){return k(b)},$$events:{click:()=>{B(a,!k(a))}},children:(w,q)=>{var m=M("Toggle Panel");o(w,m)},$$slots:{default:!0}});var S=g(d,2);$(S,F(l,{get open(){return k(a)},children:(w,q)=>{var m=ne(),z=f(m);R(E=>G(z,`${E??""} Aura Panel`),[()=>l().placement.charAt(0).toUpperCase()+l().placement.slice(1)],x),o(w,m)},$$slots:{default:!0}})),o(P,c)};N(()=>{},()=>{B(a,!0)}),O(),L();var s=le(),i=Q(s);v(i,{name:"Right Panel",args:{placement:"right"},children:n,parameters:{__svelteCsf:{rawCode:`<div style="height: 100%; min-height: 250px; width: 100%;">
+	<Button on:click={() => {
+open = !open;
+}} class={\`\${args.placement}-button\`}>Toggle Panel</Button> <Panel {...args} {open}>
+		<div class="panel-content">{args.placement.charAt(0).toUpperCase() + args.placement.slice(1)} Aura Panel</div>
+	</Panel>
+</div>`}}});var r=g(i,2);v(r,{name:"Left Panel",args:{placement:"left"},children:n,parameters:{__svelteCsf:{rawCode:`<div style="height: 100%; min-height: 250px; width: 100%;">
+	<Button on:click={() => {
+open = !open;
+}} class={\`\${args.placement}-button\`}>Toggle Panel</Button> <Panel {...args} {open}>
+		<div class="panel-content">{args.placement.charAt(0).toUpperCase() + args.placement.slice(1)} Aura Panel</div>
+	</Panel>
+</div>`}}});var p=g(r,2);v(p,{name:"Top Panel",args:{placement:"top"},children:n,parameters:{__svelteCsf:{rawCode:`<div style="height: 100%; min-height: 250px; width: 100%;">
+	<Button on:click={() => {
+open = !open;
+}} class={\`\${args.placement}-button\`}>Toggle Panel</Button> <Panel {...args} {open}>
+		<div class="panel-content">{args.placement.charAt(0).toUpperCase() + args.placement.slice(1)} Aura Panel</div>
+	</Panel>
+</div>`}}});var t=g(p,2);v(t,{name:"Bottom Panel",args:{placement:"bottom"},children:n,parameters:{__svelteCsf:{rawCode:`<div style="height: 100%; min-height: 250px; width: 100%;">
+	<Button on:click={() => {
+open = !open;
+}} class={\`\${args.placement}-button\`}>Toggle Panel</Button> <Panel {...args} {open}>
+		<div class="panel-content">{args.placement.charAt(0).toUpperCase() + args.placement.slice(1)} Aura Panel</div>
+	</Panel>
+</div>`}}}),o(y,s),U()}V.__docgen={version:3,name:"panel.stories.svelte",data:[],computed:[],methods:[],components:[],description:null,keywords:[],events:[],slots:[],refs:[]};const _=H(V,ae),we=["RightPanel","LeftPanel","TopPanel","BottomPanel"],ke=_.RightPanel,xe=_.LeftPanel,$e=_.TopPanel,Be=_.BottomPanel;export{Be as BottomPanel,xe as LeftPanel,ke as RightPanel,$e as TopPanel,we as __namedExportsOrder,ae as default};

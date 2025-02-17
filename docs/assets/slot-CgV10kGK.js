@@ -1,0 +1,1 @@
+function r(e,t,i,n,u){var l;var s=(l=t.$$slots)==null?void 0:l[i],f=!1;s===!0&&(s=t[i==="default"?"children":i],f=!0),s===void 0?u!==null&&u(e):s(e,f?()=>n:n)}function d(e){const t={};e.children&&(t.default=!0);for(const i in e.$$slots)t[i]=!0;return t}export{d as a,r as s};

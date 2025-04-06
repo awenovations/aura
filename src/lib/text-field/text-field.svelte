@@ -151,6 +151,9 @@
 <style lang="scss">
 	.multi {
 		height: 100%;
+		white-space: pre-wrap;
+		overflow-wrap: break-word;
+		overflow-y: auto;
 	}
 
 	.aura-text-field {

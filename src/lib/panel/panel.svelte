@@ -6,16 +6,7 @@
 	export let width: string | undefined = '41%';
 	export let height: string | undefined = '41%';
 	export let open: boolean = false;
-	export let enableEscapeKey: boolean = true;
-
-	const handleEscape = (event) => {
-		if (enableEscapeKey && event.key === 'Escape') {
-			open = false;
-		}
-	};
 </script>
-
-<svelte:window on:keydown={handleEscape} />
 
 <div
 	style:--width={['right', 'left'].includes(placement) ? width : '100%'}
@@ -37,7 +28,7 @@
 		position: absolute;
 		border-style: solid;
 		overflow: hidden;
-		transition: all 500ms;
+    transition: all 500ms;
 
 		.internal-wrapper {
 			white-space: nowrap;

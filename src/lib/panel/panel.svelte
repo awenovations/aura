@@ -6,9 +6,10 @@
 	export let width: string | undefined = '41%';
 	export let height: string | undefined = '41%';
 	export let open: boolean = false;
+	export let enableEscapeKey: boolean = true;
 
 	const handleEscape = (event) => {
-		if (event.key === 'Escape') {
+		if (enableEscapeKey && event.key === 'Escape') {
 			open = false;
 		}
 	};

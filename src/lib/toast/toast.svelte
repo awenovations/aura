@@ -15,10 +15,11 @@
 <style lang="scss">
   .toast-wrapper {
     position: absolute;
-    bottom: 0.714rem;
+    top: 0.714rem;
     right: 0.714rem;
     display: flex;
     flex-direction: column;
     gap: 0.714rem;
+    z-index: 10000;
   }
 </style>

@@ -1,0 +1,1 @@
+let i=!1;function c(s,t,e){var l=s.__className,a=n(t,e);(l!==a||i)&&(t==null&&!e?s.removeAttribute("class"):s.className=a,s.__className=a)}function n(s,t){return(s??"")+(t?" "+t:"")}function r(s,t,e){if(e){if(s.classList.contains(t))return;s.classList.add(t)}else{if(!s.classList.contains(t))return;s.classList.remove(t)}}export{i as h,c as s,r as t};

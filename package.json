@@ -65,12 +65,12 @@
     "@storybook/svelte": "^8.5.6",
     "@storybook/sveltekit": "^8.5.6",
     "@storybook/test": "^8.5.6",
-    "@storybook/addon-svelte-csf": "^5.0.0-next.23",
+    "@storybook/addon-svelte-csf": "^5.0.0",
     "@storybook/addon-themes": "^8.5.6",
     "@sveltejs/adapter-auto": "^3.2.2",
     "@sveltejs/kit": "^2.5.27",
     "@sveltejs/package": "^2.3.7",
-    "@sveltejs/vite-plugin-svelte": "^4.0.0",
+    "@sveltejs/vite-plugin-svelte": "^5.0.3",
     "@typescript-eslint/eslint-plugin": "^8.24.0",
     "@typescript-eslint/parser": "^8.24.0",
     "eslint": "^9.6.0",
@@ -91,7 +91,7 @@
     "svelte-check": "^4.0.0",
     "tslib": "^2.6.3",
     "typescript": "^5.5.2",
-    "vite": "^5.4.4"
+    "vite": "^6.3.5"
   },
   "svelte": "./dist/index.js",
   "types": "./dist/index.d.ts",

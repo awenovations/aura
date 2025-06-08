@@ -66,7 +66,7 @@
 				<aura-option value="large">large</aura-option>
 			</Dropdown>
 		</div>
-		<div style="display: flex; gap: 10px; margin-top: 30px;">
+    <div style="display: flex; gap: 10px; margin-top: 30px; flex-wrap: wrap;">
 			{#each iconList as icon}
 				<Tooltip placement="top" content={`Icon Name: ${icon}`}>
 					<Icon name={icon} {size} />

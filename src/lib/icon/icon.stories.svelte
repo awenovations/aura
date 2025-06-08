@@ -25,8 +25,6 @@
 	$: size = 'large';
 	$: iconSearch = '';
 
-	$: console.log(iconSearch);
-
 	let allIcons: Array<string> = [];
 
 	const fetchIconMeta = async () => {

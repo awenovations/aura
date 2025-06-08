@@ -10,7 +10,7 @@ const iconFilePath = `${__dirname}/../../icons`;
 const files = fs.readdirSync(iconFilePath);
 
 const icons = files
-	.filter((file) => file !== 'meta.json')
+	.filter((file) => file.endsWith('.svg'))
 	.map((file) => file.replace('.svg', ''))
 	.map((icon) => {
 		const iconArray = icon.split('-');

@@ -40,6 +40,7 @@
 	export let width = undefined;
 	export let height = undefined;
 	export let id = uuidv4();
+  export let textFieldClass : string | undefined = undefined;
 
 	type TextFieldEventDetail = {
 		innerEvent: Event & { target: HTMLInputElement };
@@ -88,6 +89,7 @@
 	<FormItem
 		bind:required
 		bind:disabled
+    class={textFieldClass ? '' : textFieldClass}
 		{width}
 		{height}
 		error={($$slots.errors || hasErrorsInternal) && showErrors}

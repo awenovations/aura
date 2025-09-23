@@ -1,4 +1,5 @@
 <script lang="ts">
+  import classNames from 'classnames';
 	export let showFocusOutline: boolean = false;
 	export let disabled = false;
 	export let width : string | undefined = undefined;
@@ -7,10 +8,10 @@
 </script>
 
 <div
-	class="aura-form-item"
 	class:isFocused={showFocusOutline}
 	class:disabled
 	class:error
+	class={classNames('aura-form-item', $$restProps.class)}
 	style="{width ? `width: ${width};` : ''} {height ? `height: ${height};` : ''}"
 >
 	<slot />

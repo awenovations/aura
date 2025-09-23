@@ -89,7 +89,7 @@
 	<FormItem
 		bind:required
 		bind:disabled
-    class={textFieldClass ? '' : textFieldClass}
+    class={textFieldClass ?  textFieldClass : ''}
 		{width}
 		{height}
 		error={($$slots.errors || hasErrorsInternal) && showErrors}

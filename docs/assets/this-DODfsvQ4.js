@@ -1,0 +1,1 @@
+import{k,r as S,j as h,S as q}from"./context-CxUdnwkE.js";import{q as T}from"./props-CsqN1I63.js";function t(r,i){return r===i||(r==null?void 0:r[q])===i}function A(r={},i,a,c){return k(()=>{var f,s;return S(()=>{f=s,s=[],h(()=>{r!==a(...s)&&(i(r,...s),f&&t(a(...f),r)&&i(null,...f))})}),()=>{T(()=>{s&&t(a(...s),r)&&i(null,...s)})}}),r}export{A as b};

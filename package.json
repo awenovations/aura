@@ -30,6 +30,11 @@
     "./package.json": "./package.json",
     "./button.svelte": "./dist/button/button.svelte",
     "./icon.svelte": "./dist/icon/icon.svelte",
+    "./icon-registry": {
+      "types": "./dist/icon/icon-registry.d.ts",
+      "svelte": "./dist/icon/icon-registry.js",
+      "default": "./dist/icon/icon-registry.js"
+    },
     "./container.svelte": "./dist/container/container.svelte",
     "./dialog.svelte": "./dist/dialog/dialog.svelte",
     "./dropdown.svelte": "./dist/dropdown/dropdown.svelte",
@@ -61,12 +66,12 @@
     "@storybook/addon-essentials": "^8.5.6",
     "@storybook/addon-interactions": "^8.5.6",
     "@storybook/addon-links": "^8.5.6",
+    "@storybook/addon-svelte-csf": "^5.0.0",
+    "@storybook/addon-themes": "^8.5.6",
     "@storybook/blocks": "^8.5.6",
     "@storybook/svelte": "^8.5.6",
     "@storybook/sveltekit": "^8.5.6",
     "@storybook/test": "^8.5.6",
-    "@storybook/addon-svelte-csf": "^5.0.0",
-    "@storybook/addon-themes": "^8.5.6",
     "@sveltejs/adapter-auto": "^3.2.2",
     "@sveltejs/kit": "^2.5.27",
     "@sveltejs/package": "^2.3.7",
@@ -77,6 +82,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-storybook": "^0.11.3",
     "eslint-plugin-svelte": "^2.45.1",
+    "lucide-svelte": "^0.564.0",
     "prettier": "^3.3.2",
     "prettier-plugin-svelte": "^3.2.6",
     "publint": "^0.2.8",
@@ -96,6 +102,14 @@
   "svelte": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "type": "module",
+  "peerDependencies": {
+    "lucide-svelte": ">=0.300.0"
+  },
+  "peerDependenciesMeta": {
+    "lucide-svelte": {
+      "optional": true
+    }
+  },
   "dependencies": {
     "@floating-ui/dom": "^1.6.6",
     "classnames": "^2.5.1",

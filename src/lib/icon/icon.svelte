@@ -1,10 +1,12 @@
 <script lang="ts">
 	import type * as Props from './props';
+	import { getIcon } from './icon-registry';
 
 	export let forceColor: boolean = false;
 	export let size: Props.IconSize = 'medium';
 	export let name: string = undefined;
 	$: hasColor = name?.includes('-color') || forceColor;
+	$: registeredIcon = name ? getIcon(name) : undefined;
 </script>
 
 <div
@@ -12,9 +14,12 @@
 	class:isLarge={size === 'large'}
 	class:isMedium={size === 'medium'}
 	class:isSmall={size === 'small'}
+	class:isRegistered={!!registeredIcon}
 >
 	<slot>
-		{#if name}
+		{#if registeredIcon}
+			<svelte:component this={registeredIcon} />
+		{:else if name}
 			<div
 				class="icon"
 				class:color={hasColor}
@@ -75,6 +80,12 @@
 			background: var(--icon-url);
 			background-repeat: no-repeat;
 			background-position: center;
+		}
+
+		/* Registered icons (e.g. lucide) use stroke="currentColor",
+		 * so we set color to match the aura icon color variable */
+		&.isRegistered {
+			color: var(--icon-color, var(--aura-secondary-30, currentColor));
 		}
 	}
 </style>

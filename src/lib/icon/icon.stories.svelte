@@ -4,6 +4,15 @@
 	import Icon from '$lib/icon/icon.svelte';
 	import { iconSizes } from '$lib/icon/props.ts';
 	import Tooltip from '$lib/tooltip/tooltip.svelte';
+	import { registerIcons } from '$lib/icon/icon-registry';
+	import { ArrowRight, CircleCheck, Settings, Trash2 } from 'lucide-svelte';
+
+	registerIcons({
+		'arrow-right': ArrowRight,
+		'circle-check': CircleCheck,
+		'lucide-settings': Settings,
+		'trash-2': Trash2
+	});
 
 	export const meta = {
 		title: 'AURA/Icon',
@@ -121,3 +130,37 @@
 		size: 'large'
 	}}
 />
+
+<Story name="Lucide Icons">
+	<div style="display: flex; gap: 20px; align-items: center;">
+		<Tooltip placement="bottom" content="arrow-right (small)">
+			<Icon name="arrow-right" size="small" />
+		</Tooltip>
+		<Tooltip placement="bottom" content="circle-check (medium)">
+			<Icon name="circle-check" size="medium" />
+		</Tooltip>
+		<Tooltip placement="bottom" content="lucide-settings (large)">
+			<Icon name="lucide-settings" size="large" />
+		</Tooltip>
+		<Tooltip placement="bottom" content="trash-2 (medium)">
+			<Icon name="trash-2" size="medium" />
+		</Tooltip>
+	</div>
+</Story>
+
+<Story name="Lucide + Built-in Mix">
+	<div style="display: flex; gap: 20px; align-items: center;">
+		<Tooltip placement="bottom" content="lucide: circle-check">
+			<Icon name="circle-check" size="medium" />
+		</Tooltip>
+		<Tooltip placement="bottom" content="built-in: checkmark">
+			<Icon name="checkmark" size="medium" />
+		</Tooltip>
+		<Tooltip placement="bottom" content="lucide: lucide-settings">
+			<Icon name="lucide-settings" size="medium" />
+		</Tooltip>
+		<Tooltip placement="bottom" content="built-in: settings">
+			<Icon name="settings" size="medium" />
+		</Tooltip>
+	</div>
+</Story>
